@@ -1,13 +1,5 @@
 public class LineComputation
 {
-static boolean equals(double LengthOfLine,double LengthOfSecondLine)
-{
-if(LengthOfLine == LengthOfSecondLine)
-{
-return true;
-}
-return false;
-}
 
 public static void main(String[] args)
 {
@@ -30,11 +22,18 @@ int yaxis1=(y4-y3)*(y4-y3);
 double LengthOfSecondLine = Math.sqrt((xaxis1) + (yaxis1));
 System.out.println("Length of second Line:"+"("+x3+","+y3+"),"+"("+x4+","+y4+")"+"is:"+LengthOfSecondLine);
 
-boolean Equality = equals(LengthOfLine,LengthOfSecondLine);
-if(Equality)
-System.out.println("both lines are equal");
-else
+Double line1 = Double.valueOf(LengthOfLine);
+Double line2 = Double.valueOf(LengthOfSecondLine);
+int val = line1.compareTo(line2);
+if (val == 0)
 {
-System.out.println("both lines are not equal");
+System.out.println("Two line are eqaul");
 }
+else if (val > 0) {
+System.out.println("first line is greater than second line");
+}
+else
+System.out.println("first line is less than second line");
+
 }}
+
