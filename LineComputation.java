@@ -1,39 +1,35 @@
-public class LineComputation
-{
-public static void main(String[] args)
-   {
-    System.out.println("Welcome to the Comparison Computation Program");
-    int x1 = 2;
-    int x2 = 3;
-    int y1 = 2;
-    int y2 = 4;
-    int xaxis = (x2-x1) * (x2-x1);
-    int yaxis = (y2-y1) * (y2-y1);
-    double LengthOfLine = Math.sqrt((xaxis) + (yaxis));
-    System.out.println("Length of Line:"+"("+x1+","+y1+"),"+"("+x2+","+y2+")"+"is:"+LengthOfLine);
-    System.out.println("calculating the length of second line");
-    int x3 = 2;
-    int x4 = 3;
-    int y3 = 2;
-    int y4 = 5;
-    int xaxis1 = (x4-x3) * (x4-x3);
-    int yaxis1 = (y4-y3) * (y4-y3);
-    double LengthOfSecondLine = Math.sqrt((xaxis1) + (yaxis1));
-    System.out.println("Length of second Line:"+"("+x3+","+y3+"),"+"("+x4+","+y4+")"+"is:"+LengthOfSecondLine);
-
-    Double line1 = Double.valueOf(LengthOfLine);
-    Double line2 = Double.valueOf(LengthOfSecondLine);
-    int val = line1.compareTo(line2);
-       if (val == 0)
-       {
-        System.out.println("Two line are eqaul");
-       }
-       else if (val > 0)
-       {
-        System.out.println("first line is greater than second line");
-       }
-       else
-        System.out.println("first line is less than second line");
-   }
+class Compare {
+    public void compareTo(double lengthLine1, double lengthLine2) {
+        System.out.println("Length of line1 is= "+lengthLine1);
+        System.out.println("Length of line2 is= "+lengthLine2);
+        if (lengthLine1 > lengthLine2)
+            System.out.println("Length of line 1 is greater than Length of line 2");
+        else if (lengthLine1 < lengthLine2)
+            System.out.println("Length of line 1 is lesser than Length of line 2");
+        else
+            System.out.println("Both lines are equal");
+    }
 }
+    public class LineComputation {
+       private final double x1;
+       private final double y1;
+       private final double x2;
+       private final double y2;
 
+    public LineComputation(double x1, double y1, double x2, double y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Line Comparision Computation Program");
+        LineComputation line1 = new LineComputation(9, 4, 5, 4);
+        LineComputation line2 = new LineComputation(9, 4, 5, 8);
+        double lengthOfLine1 = Math.sqrt(Math.pow((line1.x2-line1.x1),2) + Math.pow((line1.y2-line1.y1),2));
+        double lengthOfLine2 = Math.sqrt(Math.pow((line2.x2-line2.x1),2) + Math.pow((line2.y2-line2.y1),2));
+        Compare comparision = new Compare();
+        comparision.compareTo(lengthOfLine1, lengthOfLine2);
+    }
+}
